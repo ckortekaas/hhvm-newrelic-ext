@@ -1,4 +1,4 @@
-#include "hphp/runtime/base/base-includes.h"
+#include "hphp/runtime/ext/extension.h"
 #include "hphp/runtime/ext/std/ext_std_errorfunc.h"
 #include "hphp/runtime/base/php-globals.h"
 #include "hphp/runtime/base/hphp-system.h"
