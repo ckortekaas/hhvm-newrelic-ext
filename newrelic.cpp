@@ -248,11 +248,11 @@ public:
         HHVM_FE(newrelic_transaction_set_threshold);
         HHVM_FE(newrelic_end_transaction);
         HHVM_FE(newrelic_segment_generic_begin);
-        HHVM_FE(newrelic_segment_datastore_begin);
+//        HHVM_FE(newrelic_segment_datastore_begin);
         HHVM_FE(newrelic_segment_external_begin);
         HHVM_FE(newrelic_segment_end);
         HHVM_FE(newrelic_get_scoped_generic_segment);
-        HHVM_FE(newrelic_get_scoped_database_segment);
+//        HHVM_FE(newrelic_get_scoped_database_segment);
         HHVM_FE(newrelic_get_scoped_external_segment);
         HHVM_FE(newrelic_notice_error_intern);
         HHVM_FE(newrelic_add_attribute_intern);
