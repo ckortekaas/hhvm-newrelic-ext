@@ -134,7 +134,7 @@ static int64_t HHVM_FUNCTION(newrelic_segment_generic_begin, const String & name
     return newrelic_segment_generic_begin(NEWRELIC_AUTOSCOPE, NEWRELIC_AUTOSCOPE, name.c_str());
 }
 
-static int64_t HHVM_FUNCTION(newrelic_segment_datastore_begin, const String & table, const String & operation, const String & sql, const String & sql_trace_rollup_name, String & sql_obfuscator) {
+static int64_t HHVM_FUNCTION(newrelic_segment_datastore_begin, const String & table, const String & operation, const String & sql, const String & sql_trace_rollup_name, const String & sql_obfuscator) {
     return newrelic_segment_datastore_begin(NEWRELIC_AUTOSCOPE, NEWRELIC_AUTOSCOPE, table.c_str(), operation.c_str(), sql.c_str(), sql_trace_rollup_name.c_str(), NULL);
 }
 
@@ -174,7 +174,7 @@ static Variant HHVM_FUNCTION(newrelic_get_scoped_generic_segment, const String &
     return Resource(segment);
 }
 
-static Variant HHVM_FUNCTION(newrelic_get_scoped_database_segment, const String & table, const String & operation, const String sql, const String sql_trace_rollup_name) {
+static Variant HHVM_FUNCTION(newrelic_get_scoped_database_segment, const String & table, const String & operation, const String & sql, const String & sql_trace_rollup_name) {
     ScopedDatastoreSegment * segment = nullptr;
     // NEWOBJ existsonly until HHVM 3.4
     #ifdef NEWOBJ
@@ -248,11 +248,11 @@ public:
         HHVM_FE(newrelic_transaction_set_threshold);
         HHVM_FE(newrelic_end_transaction);
         HHVM_FE(newrelic_segment_generic_begin);
-//        HHVM_FE(newrelic_segment_datastore_begin);
+        HHVM_FE(newrelic_segment_datastore_begin);
         HHVM_FE(newrelic_segment_external_begin);
         HHVM_FE(newrelic_segment_end);
         HHVM_FE(newrelic_get_scoped_generic_segment);
-//        HHVM_FE(newrelic_get_scoped_database_segment);
+        HHVM_FE(newrelic_get_scoped_database_segment);
         HHVM_FE(newrelic_get_scoped_external_segment);
         HHVM_FE(newrelic_notice_error_intern);
         HHVM_FE(newrelic_add_attribute_intern);
